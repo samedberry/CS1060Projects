@@ -8,14 +8,14 @@ public class TemperatureConversion {
     public static void main(String[] args) {
 
         //these lines user input, as long as that input is a number (technically as long as it begins with a number)
-        Scanner input = new Scanner(System.in);
+        Scanner input1 = new Scanner(System.in);
         System.out.println("Please enter a temperature in Fahrenheit: ");
-        double tempF = input.nextDouble();
+        double tempF = input1.nextDouble();
 
         //convert tempF from Fahrenheit to Celsius
         double tempC = (tempF - 32)*5/9;
         //convert tempF from Fahrenheit to Kelvin
-        double tempK = ((tempF - 32)*5/9)+273.15;
+        double tempK =  tempC+273.15;
 
         // displays results in plain English sentence
         System.out.println(tempF + " degrees Fahrenheit is " + tempC + " degrees Celsius and " + tempK + " degrees Kelvin.");
