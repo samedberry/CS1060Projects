@@ -1,56 +1,54 @@
+// accesses the Java Library for this file so the scanner stuff actually works
+import java.util.Scanner;
+
+//first class in the file needs to be named for the file for anything to start
 public class InteractiveGreeter {
 
-/*
-    ask questions
-    save answers in variables
-    display outut
-
-    Name?
-    Where are you from?
-    Age?
-
-    Display Greeting
-
-    Favorite activity?
-
-    Compliment activity
-
-    How much will you donate today?
-
-    Thanks for donation of QTY
-
-    example:
-    What is your name? Ian
-    Where are you from? Florida
-    How old are you (years)? 23
-    Hello Ian from Florida. You are 23 years old.
-    What's something you like to do? play guitar
-    Have fun next time you play guitar!
-    How much would you like to donate today? 24.50
-    You will donate $24.50 today. Yay!
-
-    test your program
-    should work for any name/location/age/hobby/donation amount as input
-    */
+//this line declares the main method which lets a computer access and use the file
 public static void main(String[] args) {
 
-    //declare + initialize variables
-    String day = "Friday";
-    int date = 1;
-    String monthName = "September";
-    int year = 2023;
+    //initialize scanner
+    Scanner input1 = new Scanner(System.in);
 
-    //display variables
-    System.out.println("day = " + day);
-    System.out.println("date = " + date);
-    System.out.println("monthName = " + monthName);
-    System.out.println("year = " + year + "\n");
+    //get user name
+    System.out.println("What is your name?");
+    String name = input1.nextLine();
 
-    //American readable date
-    System.out.println("Today's date is " +day + ", " + monthName + " " + date + "st, " + year);
+    //get where user is from
+    System.out.println("Where are you from?");
+    String locationOfOrigin = input1.nextLine();
 
-    //European readable date
-    System.out.println("Today's date is " + day + " " + date + " "+ monthName + " " +  year);
+    //get user age
+    System.out.println("How old are you?");
+    int age = input1.nextInt();
 
+    //display greeting with name, age, and where from
+    System.out.println("Hello, " + name + " from " + locationOfOrigin + ". You are " + age + " years old.");
+
+
+//    //WORKING HOBBY SECTION
+//    //get user hobby
+//    Scanner input2 = new Scanner(System.in);
+//    System.out.println("What's something you like to do?");
+//    String test = input2.nextLine();
+//
+//    //display well wishing about hobby
+//    System.out.println("Have fun the next time you " + test + ".");
+
+    //BROKEN HOBBY SECTION
+    //get user hobby
+    System.out.println("What's something you like to do?");
+    String hobby = input1.nextLine();
+
+    //display well wishing about hobby
+    System.out.println("Have fun the next time you " + hobby + ".");
+
+
+    //get donation amount
+    System.out.println("How much would you like to donate today?");
+    double donation = input1.nextDouble();
+
+    //display well wishing about hobby
+    System.out.printf("Thank you for your donation of $%.2f.", donation);
 }
 }
