@@ -10,6 +10,7 @@ public static void main(String[] args) {
     //initialize scanner
     Scanner input1 = new Scanner(System.in);
 
+
     //get user name
     System.out.println("What is your name?");
     String name = input1.nextLine();
@@ -26,16 +27,8 @@ public static void main(String[] args) {
     System.out.println("Hello, " + name + " from " + locationOfOrigin + ". You are " + age + " years old.");
 
 
-//    //WORKING HOBBY SECTION
-//    //get user hobby
-//    Scanner input2 = new Scanner(System.in);
-//    System.out.println("What's something you like to do?");
-//    String test = input2.nextLine();
-//
-//    //display well wishing about hobby
-//    System.out.println("Have fun the next time you " + test + ".");
-
-    //BROKEN HOBBY SECTION
+    //clear input1 so nextLine doesn't grab the newline character leftover after the prior nextInt
+    input1.nextLine();
     //get user hobby
     System.out.println("What's something you like to do?");
     String hobby = input1.nextLine();
@@ -48,7 +41,11 @@ public static void main(String[] args) {
     System.out.println("How much would you like to donate today?");
     double donation = input1.nextDouble();
 
-    //display well wishing about hobby
+    //display thanks for donation
     System.out.printf("Thank you for your donation of $%.2f.", donation);
+
+    //clear input1 so nextLine doesn't grab the newline character leftover after the prior nextDouble
+    //future-proofing in case more inputs are added later
+    input1.nextLine();
 }
 }
