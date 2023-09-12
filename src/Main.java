@@ -9,16 +9,22 @@
 // Press Shift+F9 to start debugging your code. We have set one breakpoint
 // for you, but you can always add more by pressing Ctrl+F8.
 
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Hello and welcome!\n");
-        String aString = "String is a reserved keyword.";
-        System.out.printf(aString+"\n");
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
-        }
+        Scanner input1 = new Scanner(System.in);
+        System.out.println("Please enter your radius: ");
+        double radius = input1.nextDouble();
+        String area = area(radius);
+        System.out.println("area is " + area);
     }
+
+/// A = r*r*pi
+
+    public static String area(double radius) {
+        return ("this is an area");
+    }
+// V = A*l
+
 }
-
-
