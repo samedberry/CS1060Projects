@@ -13,15 +13,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input1 = new Scanner(System.in);
-        System.out.println("Please enter the radius of your cylinder: ");
-        double radius = input1.nextDouble();
-        System.out.println("Please enter the length of your cylinder: ");
-        double length = input1.nextDouble();
-        double area = area(radius);
-        System.out.println("The area of the base of your cylinder is " + area);
-        double volume = volume(area, length);
-        System.out.println("The volume of your cylinder is " + volume);
+//        Scanner input1 = new Scanner(System.in);
+//        System.out.println("Please enter the radius of your cylinder: ");
+//        double radius = input1.nextDouble();
+//        System.out.println("Please enter the length of your cylinder: ");
+//        double length = input1.nextDouble();
+//        double area = area(radius);
+//        System.out.println("The area of the base of your cylinder is " + area);
+//        double volume = volume(area, length);
+//        System.out.println("The volume of your cylinder is " + volume);
+
+
+
     }
 
 /// A = r*r*pi
