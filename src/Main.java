@@ -14,17 +14,26 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input1 = new Scanner(System.in);
-        System.out.println("Please enter your radius: ");
+        System.out.println("Please enter the radius of your cylinder: ");
         double radius = input1.nextDouble();
-        String area = area(radius);
-        System.out.println("area is " + area);
+        System.out.println("Please enter the length of your cylinder: ");
+        double length = input1.nextDouble();
+        double area = area(radius);
+        System.out.println("The area of the base of your cylinder is " + area);
+        double volume = volume(area, length);
+        System.out.println("The volume of your cylinder is " + volume);
     }
 
 /// A = r*r*pi
-
-    public static String area(double radius) {
-        return ("this is an area");
+    public static double area(double radius) {
+        double area = radius * radius * Math.PI;
+        return (area);
     }
+
 // V = A*l
+    public static double volume(double area, double length) {
+        double volume = area * length;
+        return (volume);
+    }
 
 }
