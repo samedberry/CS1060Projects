@@ -18,25 +18,25 @@ public class GradeCalculator {
         //This block translates the input grade to a letter grade
         if (gradePercent >= 92) {
             gradeLetter = "A";
-        } else if (gradePercent >= 89 && gradePercent < 92) {
+        } else if (gradePercent >= 89) {
             gradeLetter = "A-";
-        } else if (gradePercent >= 87 && gradePercent < 89) {
+        } else if (gradePercent >= 87) {
             gradeLetter = "B+";
-        } else if (gradePercent >= 82 && gradePercent < 87) {
+        } else if (gradePercent >= 82) {
             gradeLetter = "B";
-        } else if (gradePercent >= 79 && gradePercent < 82) {
+        } else if (gradePercent >= 79) {
             gradeLetter = "B-";
-        } else if (gradePercent >= 77 && gradePercent < 79) {
+        } else if (gradePercent >= 77) {
             gradeLetter = "C+";
-        } else if (gradePercent >= 72 && gradePercent < 77) {
+        } else if (gradePercent >= 72) {
             gradeLetter = "C";
-        } else if (gradePercent >= 69 && gradePercent < 72 ) {
+        } else if (gradePercent >= 69) {
             gradeLetter = "C-";
-        } else if (gradePercent >= 67 && gradePercent < 69 ) {
+        } else if (gradePercent >= 67) {
             gradeLetter = "D+";
-        } else if (gradePercent >= 60 && gradePercent < 67) {
+        } else if (gradePercent >= 60) {
             gradeLetter = "D";
-        } else if (gradePercent >= 0 && gradePercent < 60) {
+        } else if (gradePercent >= 0) {
             gradeLetter = "F";
         } else {
             gradeLetter = "an invalid input.";
