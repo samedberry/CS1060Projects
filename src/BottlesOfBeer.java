@@ -28,7 +28,7 @@ public class BottlesOfBeer {
         System.out.println();
         System.out.println("0 bottles of beer on the wall, 0 bottles of beer.");
 
-        //callback to how many ou started with
+        //callback to how many you started with
         System.out.println("Go to the store and buy some more, " + bottlesInitial + " bottles of beer on the wall.");
         System.out.println();
     }
