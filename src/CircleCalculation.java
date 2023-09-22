@@ -27,20 +27,16 @@ public class CircleCalculation {
 
     //This calculates the diameter
     public static double diameter(double radius){
-        double diameter = radius * 2;
-        return (diameter);
+        return (radius * 2);
     }
 
     //This calculates the area
     public static double area(double radius){
-        double area = radius * radius * Math.PI;
-        return (area);
+        return (radius * radius * Math.PI);
     }
 
     //This calculates the circumference
     public static double circumference(double radius){
-        double circumference = radius * 2 * Math.PI;
-        return (circumference);
+        return (radius * 2 * Math.PI);
     }
-
 }
