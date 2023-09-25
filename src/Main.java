@@ -13,30 +13,27 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Scanner input1 = new Scanner(System.in);
-//        System.out.println("Please enter the radius of your cylinder: ");
-//        double radius = input1.nextDouble();
-//        System.out.println("Please enter the length of your cylinder: ");
-//        double length = input1.nextDouble();
-//        double area = area(radius);
-//        System.out.println("The area of the base of your cylinder is " + area);
-//        double volume = volume(area, length);
-//        System.out.println("The volume of your cylinder is " + volume);
 
+        String fruit = "banana";
+        int index = fruit.indexOf('a'); // returns 1
+        System.out.println(index);
+        System.out.println();
+
+        index = fruit.indexOf('a', 2); // returns 3
+        System.out.println(index);
+        System.out.println();
+
+        System.out.println(fruit.substring(0, 3)); //returns "ban"
+        System.out.println(fruit.substring(2, 5)); //returns "nan"
+        System.out.println(fruit.substring(6, 6)); //returns ""
+        System.out.println();
+
+        System.out.println(fruit.substring(0, 6));
+
+        if("five".equals("five")){
+            
+        }
 
 
     }
-
-/// A = r*r*pi
-    public static double area(double radius) {
-        double area = radius * radius * Math.PI;
-        return (area);
-    }
-
-// V = A*l
-    public static double volume(double area, double length) {
-        double volume = area * length;
-        return (volume);
-    }
-
 }
