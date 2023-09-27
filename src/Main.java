@@ -14,26 +14,31 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String fruit = "banana";
-        int index = fruit.indexOf('a'); // returns 1
-        System.out.println(index);
-        System.out.println();
-
-        index = fruit.indexOf('a', 2); // returns 3
-        System.out.println(index);
-        System.out.println();
-
-        System.out.println(fruit.substring(0, 3)); //returns "ban"
-        System.out.println(fruit.substring(2, 5)); //returns "nan"
-        System.out.println(fruit.substring(6, 6)); //returns ""
-        System.out.println();
-
-        System.out.println(fruit.substring(0, 6));
-
-        if("five".equals("five")){
-            
-        }
 
 
     }
+//    public static void bananas(String[] args) {
+//
+//        String fruit = "banana";
+//        int index = fruit.indexOf('a'); // returns 1
+//        System.out.println(index);
+//        System.out.println();
+//
+//        index = fruit.indexOf('a', 2); // returns 3
+//        System.out.println(index);
+//        System.out.println();
+//
+//        System.out.println(fruit.substring(0, 3)); //returns "ban"
+//        System.out.println(fruit.substring(2, 5)); //returns "nan"
+//        System.out.println(fruit.substring(6, 6)); //returns ""
+//        System.out.println();
+//
+//        System.out.println(fruit.substring(0, 6));
+//
+//        if("five".equals("five")){
+//
+//        }
+//
+//
+//    }
 }
