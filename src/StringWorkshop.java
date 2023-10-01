@@ -7,8 +7,13 @@ public class StringWorkshop {
         System.out.println("Enter a starting of string: ");
         String userString = input1.nextLine();
 
-        //menu loop, must enter 7 to exit program
+        //loop variables
         int choice;
+        String substring;
+        String prefix;
+        String suffix;
+
+        //menu loop, must enter 7 to exit program
         while (true) {
 
             //menu dialog
@@ -20,6 +25,7 @@ public class StringWorkshop {
             System.out.println("5. Output substring before suffix");
             System.out.println("6. Output substring between prefix and suffix");
             System.out.println("7. Exit");
+            System.out.println();
 
             //input handling
             if (input1.hasNextInt()) {
@@ -38,52 +44,87 @@ public class StringWorkshop {
 
             //selection tree
             if (choice == 1) {
-                addToString(userString);
+                substring = input1.nextLine();
+                userString = addToString(userString, substring);
+                System.out.println();
+                System.out.println("Current string: " + userString);
             } else if (choice == 2) {
-                checkForSubstring(userString);
+                substring = input1.nextLine();
+                if (checkForSubstring(userString, substring)) {
+                    System.out.println(userString + " contains " + substring + ".");
+                } else {
+                    System.out.println(userString + " does not contain " + substring + ".");
+                }
             } else if (choice == 3) {
-                showLength(userString);
+                System.out.println("Length is: " + showLength(userString));
             } else if (choice == 4) {
-                afterSubstring(userString);
+                System.out.println("Prefix: ");
+                prefix = input1.nextLine();
+                System.out.println();
+                System.out.println(afterPrefix(userString, prefix));
             } else if (choice == 5) {
-                beforeSubstring(userString);
+                System.out.println("Suffix: ");
+                suffix = input1.nextLine();
+                System.out.println();
+                System.out.println(beforeSuffix(userString, suffix));
             } else if (choice == 6) {
-                betweenSubstrings(userString);
+                System.out.println("Prefix: ");
+                prefix = input1.nextLine();
+                System.out.println("Suffix: ");
+                suffix = input1.nextLine();
+                System.out.println();
+                System.out.println(betweenSubstrings(userString, prefix, suffix));
             } else {
                 endProgram();
             }
 
-            System.out.println("Current string: " + userString);
             System.out.println();
         }
     }
 
     //all the other methods are menu options
-    public static String addToString(String userString) {
-        System.out.println("Selected 1");
-        return userString;
+    public static String addToString(String userString, String addString) {
+        return userString + addString;
     }
 
-    public static boolean checkForSubstring(String userString) {
-        System.out.println("Selected 2");
-        return true;
+    public static boolean checkForSubstring(String userString, String substring) {
+        if (userString.indexOf(substring) >= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static int showLength(String userString) {
-        System.out.println("Selected 3");
-        return 5;
+        return userString.length();
     }
 
-    public static void afterSubstring(String userString) {
-        System.out.println("Selected 4");
+    public static String afterPrefix(String userString, String prefix) {
+        if (checkForSubstring(userString, prefix)) {
+            return "Substring: " + userString.substring(userString.indexOf(prefix) + prefix.length());
+        } else {
+            return userString + " does not contain " + prefix + ".";
+        }
     }
 
-    public static void beforeSubstring(String userString) {
-        System.out.println("Selected 5");
+    public static String beforeSuffix(String userString, String suffix) {
+        if (checkForSubstring(userString, suffix)) {
+            return "Substring: " + userString.substring(0, userString.indexOf(suffix));
+        } else {
+            return userString + " does not contain " + suffix + ".";
+        }
     }
 
-    public static void betweenSubstrings(String userString) {
-        System.out.println("Selected 6");
+    public static String betweenSubstrings(String userString, String prefix, String suffix) {
+        if (checkForSubstring(userString, suffix)) {
+            if (checkForSubstring(userString, prefix)) {
+                return "Substring: " + userString.substring(userString.indexOf(prefix) + prefix.length(), userString.indexOf(suffix));
+            } else {
+                return userString + " does not contain " + prefix + ".";
+            }
+        } else {
+            return userString + " does not contain " + suffix + ".";
+        }
     }
 
     public static void endProgram() {
