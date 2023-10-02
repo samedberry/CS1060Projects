@@ -88,11 +88,7 @@ public class StringWorkshop {
     }
 
     public static boolean checkForSubstring(String userString, String substring) {
-        if (userString.indexOf(substring) >= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return userString.indexOf(substring) >= 0;
     }
 
     public static int showLength(String userString) {
