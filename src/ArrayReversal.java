@@ -39,7 +39,14 @@ public class ArrayReversal {
     public static void main(String[] args) {
         //get initial input
         Scanner input1 = new Scanner(System.in);
-        System.out.println("Input goes here: ");
-        String userString = input1.nextLine();
+        System.out.println("Enter values (-1 to stop)");
+        int inputNumber = 0;
+
+
+        //loop for input
+        while(inputNumber != -1) {
+            inputNumber = input1.nextInt();
+
+        }
     }
 }

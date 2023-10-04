@@ -18,17 +18,17 @@ public class Main {
         System.out.println("Input goes here: ");
 //        String userString = input1.nextLine();
 
-        String words = new String[4];
-
-        words[0] = "Hello";
-        words[1] = "world";
-        words[2] = "goodbye";
-        words[3] = "now";
-
-        //CHECK ARRAY NOTATION ABOVE!!!^^^^
-        //prof confirmed for each loops work with non-int types
-
-        System.out.println(words[0]);
+//        String words = new String[4];
+//
+//        words[0] = "Hello";
+//        words[1] = "world";
+//        words[2] = "goodbye";
+//        words[3] = "now";
+//
+//        //CHECK ARRAY NOTATION ABOVE!!!^^^^
+//        //prof confirmed for each loops work with non-int types
+//
+//        System.out.println(words[0]);
 //        for (String word : words) {
 //            System.out.println(word);
 //        }
