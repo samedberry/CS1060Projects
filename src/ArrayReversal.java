@@ -1,40 +1,5 @@
 import java.util.Scanner;
 
-/*
-Write a program that:
- reads in a number of positive integers from the user,
- stores them in an array,
- prints them out in the reverse order.
-The user will enter the numbers one on each line and will use -1 to mark the end.
-The user will never enter more than 100 numbers.
-
-You should create an array to hold the numbers.
-You should read in the numbers using a Scanner inside of a loop.
-You should stop the loop when the user enters a value of -1.
-You should loop through the array backwards printing each value.
-Do not print the -1 value or any unused areas of the array.
- */
-
-/*
-Example Run
-
-Enter values (-1 to stop)
-: 10
-: 20
-: 30
-: 40
-: 50
-: 60
-: -1
-Your values, reversed:
-60
-50
-40
-30
-20
-10
- */
-
 public class ArrayReversal {
     public static void main(String[] args) {
         //get initial input
@@ -42,11 +7,22 @@ public class ArrayReversal {
         System.out.println("Enter values (-1 to stop)");
         int inputNumber = 0;
 
-
+        int[] numbers = new int[101];
+        int counter = 0;
         //loop for input
-        while(inputNumber != -1) {
+        while (inputNumber != -1) {
             inputNumber = input1.nextInt();
+            if (inputNumber != -1) {
+                numbers[counter] = inputNumber;
+                counter++;
+            }
+        }
 
+
+        System.out.println("Your values, reversed:");
+        //loop through reversal array for output
+        for (int i = counter - 1; i >= 0; i--) {
+            System.out.println(numbers[i]);
         }
     }
 }
