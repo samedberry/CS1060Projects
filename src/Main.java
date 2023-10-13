@@ -1,9 +1,4 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`, then press Enter. You can now see whitespace characters in your code.
-
 // Press Alt+Enter with your caret at the highlighted text to see how IntelliJ IDEA suggests fixing it.
-
-// Press Shift+F10 or click the green arrow button in the gutter to run the code.]
-
 // You can add breakpoints for debugging by pressing Ctrl+F8.
 
 import java.util.Scanner;
