@@ -1,37 +1,25 @@
-// Press Alt+Enter with your caret at the highlighted text to see how IntelliJ IDEA suggests fixing it.
-// You can add breakpoints for debugging by pressing Ctrl+F8.
-
-import java.util.Scanner;
-
+// the "main" class for the program
 public class Main {
-    public static void main(String[] args) {
-        //get initial input
-        Scanner input1 = new Scanner(System.in);
-        System.out.println("Provide user input:");
-        int inputNumber = 0;
+    public static void main(String args[]) {
+        Time t1 = new Time();              // midnight
+        Time t2 = new Time(17, 30, 0);     // 5:30 PM
+        Time t3 = Time.fromString("14:15:56");
 
+        // add an hour onto t1, then print it in both formats
+        t1.increment(3600);
+        t1.print(true);
+        t1.print(false);
 
+        // add an hour and a half, and 30 seconds onto t2
+        t2.increment(5430);
 
-    }
+        // print t2 in both formats
+        t2.print(true);
+        t2.print(false);
 
-    public static void bananas(String[] args) {
-        String fruit = "banana";
-        int index = fruit.indexOf('a'); // returns 1
-        System.out.println(index);
-        System.out.println();
-
-        index = fruit.indexOf('a', 2); // returns 3
-        System.out.println(index);
-        System.out.println();
-
-        System.out.println(fruit.substring(0, 3)); //returns "ban"
-        System.out.println(fruit.substring(2, 5)); //returns "nan"
-        System.out.println(fruit.substring(6, 6)); //returns ""
-        System.out.println();
-
-        System.out.println(fruit.substring(0, 6));
-
-        if("five".equals("five")){
-        }
+        // add 5 seconds to t3, then prints it in both formats
+        t3.increment(5);
+        t3.print(true);
+        t3.print(false);
     }
 }
