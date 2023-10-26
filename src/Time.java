@@ -1,50 +1,12 @@
-/*
-
-    Private data fields for storing:
-        hours in 24-hour format (e.g. 17 is 5:00 PM).
-        minutes
-        seconds
-
-        When referencing the fields in your methods, make sure to prefix the usages with `this.`
-
-    A default constructor that sets the time to midnight.
-    A constructor that takes hours, minutes and seconds as input.
-
-    A function called “increment” that takes a number of seconds as a parameter, and increases the time by that
-    many seconds (you may have to increase the hour and minute as well).
-
-    A function called “print” that takes one parameter, a bool called “military”.
-    If military is true, you should print the time in 24-hour format, otherwise print in the 12-hour AM/PM format.
-
-    Write a static function inside the Time class that takes a String in the form "HH:MM:SS" (in 24 hour time)
-    and returns a Time object.
-        Hint: you'll want to use `String.split(":")`
-        Hint: you'll probably also want to use `Integer.parseInt`
-
-
-The goal output is given below:
-
-1:00:00
-1:00:00 AM
-19:00:30
-7:00:30 PM
-14:16:01
-2:16:01 PM
-
- */
-
 public class Time {
-
     private int hour;
     private int minute;
     private int second;
 
     public static void main(String[] args) {
-
-
     }
 
-    public Time(){
+    public Time() {
         this.hour = 0;
         this.minute = 0;
         this.second = 0;
@@ -56,13 +18,51 @@ public class Time {
         this.second = second;
     }
 
-    public increment(int increment) {
-
-    }
-
-    public print(boolean military) {
-        if (!military) {
-
+    //increase by this many seconds
+    public void increment(int increment) {
+        this.second = this.second + increment;
+        if (this.second > 59) {
+            this.minute = this.minute + this.second / 60;
+            this.second = this.second % 60;
+        }
+        if (this.minute > 59) {
+            this.hour = this.hour + this.minute / 60;
+            this.minute = this.minute % 60;
+        }
+        if (this.hour > 24) {
+            this.hour = this.hour % 24;
         }
     }
+
+    //print time object
+    public void print(boolean military) {
+        if (military) {
+            System.out.printf(this.hour + ":%02d:%02d\n", this.minute, this.second);
+        } else {
+            int displayHour = this.hour;
+            String amOrPm;
+            if (this.hour < 12) {
+                amOrPm = "AM";
+                if (this.hour == 0) {
+                    displayHour = 12;
+                }
+            } else {
+                amOrPm = "PM";
+                if (this.hour > 12) {
+                    displayHour = this.hour - 12;
+                }
+            }
+            System.out.printf(displayHour + ":%02d:%02d ", this.minute, this.second);
+            System.out.printf(amOrPm);
+            System.out.println();
+        }
+    }
+
+
+    //timestamp must be formatted "HH:MM:SS"
+    public static Time fromString(String timestamp) {
+        return new Time(Integer.parseInt(timestamp.split(":")[0]), Integer.parseInt(timestamp.split(":")[1]), Integer.parseInt(timestamp.split(":")[2]));
+    }
 }
+
+
