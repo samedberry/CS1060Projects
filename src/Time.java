@@ -34,8 +34,35 @@ The goal output is given below:
  */
 
 public class Time {
+
+    private int hour;
+    private int minute;
+    private int second;
+
     public static void main(String[] args) {
 
 
+    }
+
+    public Time(){
+        this.hour = 0;
+        this.minute = 0;
+        this.second = 0;
+    }
+
+    public Time(int hour, int minute, int second) {
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
+    }
+
+    public increment(int increment) {
+
+    }
+
+    public print(boolean military) {
+        if (!military) {
+
+        }
     }
 }
