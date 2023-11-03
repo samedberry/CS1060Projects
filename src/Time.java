@@ -3,9 +3,6 @@ public class Time {
     private int minute;
     private int second;
 
-    public static void main(String[] args) {
-    }
-
     public Time() {
         this.hour = 0;
         this.minute = 0;
