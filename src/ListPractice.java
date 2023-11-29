@@ -82,10 +82,11 @@ public class ListPractice {
     //returns *SAME LIST* with all strings containing "amoeba" (case-insensitive) removed
     //DO NOT CREATE ANOTHER LIST
     public static List<String> findAndDestroyAllAmoebas(List<String> amoebaList) {
-        for(int i = amoebaList.size()-1; i >= 0; i--) {
+        for (int i = amoebaList.size() - 1; i >= 0; i--) {
             if (amoebaList.get(i).toUpperCase().indexOf("AMOEBA") > 0) {
                 amoebaList.remove(i);
-            }        }
+            }
+        }
         return amoebaList;
     }
 
