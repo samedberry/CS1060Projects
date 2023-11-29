@@ -10,6 +10,14 @@ public class ListPractice {
         System.out.println(stringToList("CharacterBreakout"));
         System.out.println();
         System.out.println(createListWithBounds(5, 10, 2));
+        System.out.println();
+
+        List<String> amoebaList = new ArrayList<>();
+        amoebaList.add("This element has one big AMOEBA.");
+        amoebaList.add("This element has no Amoebas.");
+        amoebaList.add("This element has some crabs.");
+        amoebaList.add("This element has some amoebas.");
+        System.out.println(findAndDestroyAllAmoebas(amoebaList));
     }
 
     //    reads positive integers from the user, stores them in a list, and prints them out in reverse order.
@@ -73,8 +81,12 @@ public class ListPractice {
     //function takes List<String>
     //returns *SAME LIST* with all strings containing "amoeba" (case-insensitive) removed
     //DO NOT CREATE ANOTHER LIST
-    public static List<String> findAndDestroyAllAmoebas(List<String> stringList) {
-        return stringList;
+    public static List<String> findAndDestroyAllAmoebas(List<String> amoebaList) {
+        for(int i = amoebaList.size()-1; i >= 0; i--) {
+            if (amoebaList.get(i).toUpperCase().indexOf("AMOEBA") > 0) {
+                amoebaList.remove(i);
+            }        }
+        return amoebaList;
     }
 
 }
