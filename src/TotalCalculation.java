@@ -12,6 +12,21 @@
 //The total is $75.86
 
 
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
 
 public class TotalCalculation {
+    public static void main(String[] args) throws Exception {
+
+        System.out.println();
+
+        File file = new File("items.txt");
+        FileReader fileReader = new FileReader(file);
+        System.out.println();
+//        Scanner input1 = new Scanner(fileReader);
+//
+//        System.out.println(input1.nextDouble());
+    }
+
 }
