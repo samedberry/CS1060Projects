@@ -31,7 +31,7 @@ public class ScratchWork {
                 if (classNumber.equals(noClassName.substring(0, secondComma)) && grades.get(grades.size() - 1) < Integer.parseInt(gradeAsString)) {
                     classNumber = noClassName.substring(0, secondComma);
                     grades.set(grades.size() - 1, (Integer.parseInt(gradeAsString)));
-                } else if (gradeAsString) {
+//                } else if (gradeAsString) {
 
                 }else {
                     classNumber = noClassName.substring(0, secondComma);
