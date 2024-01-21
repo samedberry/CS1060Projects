@@ -47,6 +47,7 @@ public class HangMan {
         //guess loop
         do {
             System.out.print("(Guess) Enter a letter in word " + displayWord + " > ");
+//program crashes if no guess is entered. Address in next version.
             guess = input1.nextLine().substring(0, 1);
 
             if (displayWord.indexOf(guess) > -1) {
