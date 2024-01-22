@@ -1,9 +1,10 @@
 public class Test {
     public static void main(String[] args) {
-        double sum = 0;
-        for (double d = 0; d < 10;) {
-            d += 0.1;
-            sum += sum + d;
-        }
+        System.out.println(-1%4);
+        System.out.println(0%4);
+        System.out.println(1%4);
+        System.out.println(2%4);
+        System.out.println(3%4);
+        System.out.println(4%4);
     }
 }

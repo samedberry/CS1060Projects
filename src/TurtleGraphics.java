@@ -4,8 +4,16 @@ import java.util.Scanner;
  * Class to test class Turtle Program.
  * Drawing turtle graphics based on turtle commands.
  *
+ * <p>
+ * Main entry point.
+ * <p>
+ * Execute:</p>
+ * <pre>java TurtleGraphics</pre>
+ *
+ * @param argsnot used.
  * @author  Deitel 10e chapter 7
- * @version CSC160 CSC 1 2020 Robert Gilanyi, Instructor
+ * @author  Spencer Medberry, S01027971
+ * @version2024-1-21, CSC-1061 Assignment 1, Exercise 1.3
  */
 public class TurtleGraphics
 {
@@ -31,7 +39,7 @@ public class TurtleGraphics
             System.out.println("Invalid command detected");
     }
     //enter the turtle commands
-    public void enterCommands(int[][] cmnds){
+    public int enterCommands(int[][] cmnds){
         int count = 0; // the current number of commands
         Scanner input = new Scanner(System.in);
         input.useDelimiter(",|\n");
@@ -54,6 +62,7 @@ public class TurtleGraphics
             System.out.print("Enter command (9 to end input): ");
             inputCommand = input.nextInt();
         }
+        return count;
     }
 
     // executes the commands in the command array
@@ -110,17 +119,15 @@ public class TurtleGraphics
     // method to turn turtle to the right
     public static int turnRight(int d)
     {
-        // To be completed by student.
-
-        return Integer.MAX_VALUE;
+        return (d+1)%4;
     }
 
     // method to turn turtle to the left
     public static int turnLeft(int d)
     {
-        // To be completed by student.
-
-        return Integer.MAX_VALUE;
+        d = d-1;
+        if (d < 0) d = d + 4;
+        return d;
     }
 
     // method to move the pen
@@ -140,11 +147,19 @@ public class TurtleGraphics
                 break;
 
             case 1: // move down
-                // To be completed by student.
+                for (j = 1; j <= dist && xPos + j < SIZE; ++j)
+                    if (down)
+                        a[xPos + j][yPos] = 1;
+
+                xPos += j - 1;
                 break;
 
             case 2: // move to left
-                // To be completed by student.
+                for (j = 1; j <= dist && yPos - j >= 0; ++j)
+                    if (down)
+                        a[xPos][yPos - j] = 1;
+
+                yPos -= j - 1;
                 break;
 
             case 3: // move up
@@ -163,7 +178,13 @@ public class TurtleGraphics
         // display array
         for (int i = 0; i < SIZE; ++i)
         {
-            // To be completed by student.
+            for (int i2 = 0; i2 < SIZE; ++i2) {
+                if (a[i][i2] == 0) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("* ");
+                }
+            }
 
             System.out.println();
         }
