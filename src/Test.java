@@ -1,5 +1,5 @@
 public class Test {
     public static void main(String[] args) {
-        System.out.println((double)(5/2));
+        System.out.println("str+" + 2 + 3);
     }
 }
