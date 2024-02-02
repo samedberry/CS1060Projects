@@ -98,9 +98,9 @@ public class Person {
      * @param initialAge Person's initial age in years
      */
     public Person(String firstName, String lastName, double initialAge) {
-		this.firstNameField = firstName;
-		this.lastNameField = lastName;
-		this.ageField = initialAge;
+		setFirst(firstName);
+        setLast(lastName);
+        setAge(initialAge);
 //        out.println("Constructor not yet implemented");
     }
 
@@ -129,7 +129,12 @@ public class Person {
      */
     public void setFirst(String firstName) {
 //        out.println("setFirst not yet implemented");
-		this.firstNameField = firstName;
+        if (firstName != null && !firstName.isEmpty()) {
+            this.firstNameField = firstName;
+        } else {
+            out.println("Invalid Name. First name set to DEFAULT_NAME: " + DEFAULT_NAME);
+            this.firstNameField = DEFAULT_NAME;
+        }
     }
 
     /**
@@ -149,7 +154,12 @@ public class Person {
      */
     public void setLast(String lastName) {
 //        out.println("setLast not yet implemented");
-		this.lastNameField = lastName;
+        if (lastName != null && !lastName.isEmpty()) {
+            this.lastNameField = lastName;
+        } else {
+            out.println("Invalid Name. Last name set to DEFAULT_NAME: " + DEFAULT_NAME);
+            this.lastNameField = DEFAULT_NAME;
+        }
     }
 
     /**
@@ -162,7 +172,8 @@ public class Person {
 		if (age > 0) {
 			this.ageField = age;
 		} else {
-			out.println("Age must be positive.");
+			out.println("Invalid age. Age set to DEFAULT_AGE: " + DEFAULT_AGE);
+            this.ageField = DEFAULT_AGE;
 		}
     }
 
@@ -184,6 +195,6 @@ public class Person {
     @Override
     public String toString() {
 //        return "toString not yet implemented";
-		return firstNameField + " " + lastNameField + " " + ageField;
+		return super.toString() + " " + firstNameField + " " + lastNameField;
     }
 }
