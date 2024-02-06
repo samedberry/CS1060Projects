@@ -1,19 +1,6 @@
-public class Test extends A {
+public class Test {
     public static void main(String[] args) {
-        Test t = new Test();
-        t.print();
+        System.out.println("Test");
     }
 }
 
-class A {
-    String s;
-
-//    A(){}
-//    A(String s) {
-//        this.s = s;
-//    }
-
-    public void print() {
-        System.out.println(s);
-    }
-}
