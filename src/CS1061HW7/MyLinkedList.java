@@ -322,7 +322,7 @@ public class MyLinkedList<E> implements MyList<E> {
 
         @Override
         public boolean hasNext() {
-            return (current != null && current != rear && counter > 0);
+            return (counter < size);
         }
 
         @Override
