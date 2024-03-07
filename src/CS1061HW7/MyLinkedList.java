@@ -64,7 +64,7 @@ public class MyLinkedList<E> implements MyList<E> {
         Node<E> newNode = new Node<>(e); // Create a new node
         if (rear == null) { // the new node is the only node in list
             rear = newNode;
-        } else{
+        } else {
             newNode.next = rear.next; // link the new node with the head
         }
         rear.next = newNode; // head points to the new node
@@ -188,19 +188,16 @@ public class MyLinkedList<E> implements MyList<E> {
     public String toString() {
         StringBuilder result = new StringBuilder("[");
 
-        if (rear != null){
-            Node<E> current = rear.next;
-            for (int i = 0; i < size; i++) {
-                result.append(current.element);
-                current = current.next;
-                if (i < size-1) {
-                    result.append(", ");
-                }
+        Node<E> current = rear;
+        for (int i = 0; i < size; i++) {
+            result.append(current.next.element);
+            current = current.next;
+            if (i < size - 1) {
+                result.append(", ");
             }
         }
 
         result.append("]");
-
         return result.toString();
     }
 
@@ -298,9 +295,10 @@ public class MyLinkedList<E> implements MyList<E> {
     public java.util.Iterator<E> iterator() {
         return new LinkedListIterator();
     }
+
     @Override
     public boolean containsAll(Collection<?> c) {
-        for (Object collectable: c) {
+        for (Object collectable : c) {
             if (!this.contains(collectable)) {
                 return false;
             }
@@ -321,7 +319,7 @@ public class MyLinkedList<E> implements MyList<E> {
         public E next() {
             E e = current.element;
             current = current.next;
-            counter = counter+1;
+            counter = counter + 1;
             return e;
         }
 
