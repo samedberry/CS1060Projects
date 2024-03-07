@@ -1,7 +1,6 @@
 package CS1061HW7;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 public class MyLinkedList<E> implements MyList<E> {
 
@@ -15,9 +14,6 @@ public class MyLinkedList<E> implements MyList<E> {
         E element;
         Node<E> next;
 
-        /**
-         * @param element
-         */
         public Node(E element) {
             this.element = element;
         }
@@ -36,8 +32,7 @@ public class MyLinkedList<E> implements MyList<E> {
      * Create a list from an array of objects
      */
     public MyLinkedList(E[] objects) {
-        for (int i = 0; i < objects.length; i++)
-            add(objects[i]);
+        for (E object : objects) add(object);
     }
 
     /**
@@ -69,9 +64,9 @@ public class MyLinkedList<E> implements MyList<E> {
         Node<E> newNode = new Node<>(e); // Create a new node
         if (rear == null) { // the new node is the only node in list
             rear = newNode;
-            rear.next = newNode;
+        } else{
+            newNode.next = rear.next; // link the new node with the head
         }
-        newNode.next = rear.next; // link the new node with the head
         rear.next = newNode; // head points to the new node
         size++; // Increase list size
 
@@ -84,7 +79,8 @@ public class MyLinkedList<E> implements MyList<E> {
         Node<E> newNode = new Node<>(e); // Create a new for element e
 
         if (rear == null) {
-            rear.next = rear = newNode; // The new node is the only node in list
+            rear = newNode; // The new node is the only node in list
+            rear.next = rear;
         } else {
             Node<E> temp = rear.next;
             rear.next = newNode;
@@ -118,8 +114,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     /**
-     * Remove the head node and
-     * return the object that is contained in the removed node.
+     * Remove the head node and return the object that is contained in the removed node.
      */
     public E removeFirst() {
         if (size == 0) {
@@ -136,8 +131,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     /**
-     * Remove the last node and
-     * return the object that is contained in the removed node.
+     * Remove the last node and return the object that is contained in the removed node.
      */
     public E removeLast() {
         if (size == 0) {
@@ -163,8 +157,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     /**
-     * Remove the element at the specified position in this
-     * list. Return the element that was removed from the list.
+     * Remove the element at the specified position in this list. Return the element that was removed from the list.
      */
     @Override
     public E remove(int index) {
@@ -195,12 +188,14 @@ public class MyLinkedList<E> implements MyList<E> {
     public String toString() {
         StringBuilder result = new StringBuilder("[");
 
-        Node<E> current = rear.next;
-        for (int i = 0; i < size; i++) {
-            result.append(current.element);
-            current = current.next;
-            if (i < size-1) {
-                result.append(", ");
+        if (rear != null){
+            Node<E> current = rear.next;
+            for (int i = 0; i < size; i++) {
+                result.append(current.element);
+                current = current.next;
+                if (i < size-1) {
+                    result.append(", ");
+                }
             }
         }
 
@@ -252,8 +247,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     /**
-     * Return the index of the head matching element in **********************************
-     * this list. Return -1 if no match.
+     * Return the index of the head matching element in this list. Return -1 if no match.
      */
     @Override
     public int indexOf(Object e) {
@@ -269,8 +263,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     /**
-     * Return the index of the last matching element in
-     * this list. Return -1 if no match.
+     * Return the index of the last matching element in this list. Return -1 if no match.
      */
     @Override
     public int lastIndexOf(E e) {
@@ -285,8 +278,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     /**
-     * Replace the element at the specified position
-     * in this list with the specified element.
+     * Replace the element at the specified position in this list with the specified element.
      */
     @Override
     public E set(int index, E e) {
