@@ -5,6 +5,10 @@ import java.util.Iterator;
 public class MyDeque<E> implements Deque {
     private MyLinkedList<E> dequeList;
 
+    public MyDeque() {
+        this.dequeList = new MyLinkedList<E>();
+    }
+
     public int size() {
         return dequeList.size();
     }
@@ -12,7 +16,6 @@ public class MyDeque<E> implements Deque {
     public boolean isEmpty() {
         return dequeList.isEmpty();
     }
-
 
     public E getFirst() {
         return dequeList.getFirst();
@@ -26,10 +29,6 @@ public class MyDeque<E> implements Deque {
         dequeList.addFirst((E) e);
     }
 
-    public void add(int index, Object e) {
-        dequeList.add(index, (E) e);
-    }
-
     public void addLast(Object e) {
         dequeList.addLast((E) e);
     }
@@ -39,7 +38,7 @@ public class MyDeque<E> implements Deque {
     }
 
     public E removeLast() {
-        return dequeList.removeFirst();
+        return dequeList.removeLast();
     }
 
     public Iterator iterator(){
@@ -48,5 +47,10 @@ public class MyDeque<E> implements Deque {
 
     public void clear(){
         dequeList.clear();
+    }
+
+    @Override
+    public String toString() {
+        return dequeList.toString();
     }
 }
