@@ -2,11 +2,11 @@ package CS1061HW7;
 
 import java.util.Iterator;
 
-public class MyDeque<E> implements Deque {
+public class MyDeque<E> implements Deque<E>, Iterable<E> {
     private MyLinkedList<E> dequeList;
 
     public MyDeque() {
-        this.dequeList = new MyLinkedList<E>();
+        this.dequeList = new MyLinkedList<>();
     }
 
     public int size() {
@@ -41,7 +41,7 @@ public class MyDeque<E> implements Deque {
         return dequeList.removeLast();
     }
 
-    public Iterator iterator(){
+    public Iterator<E> iterator(){
         return dequeList.iterator();
     }
 
