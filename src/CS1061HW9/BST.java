@@ -1,4 +1,4 @@
-package CS1061HW8;
+package CS1061HW9;
 
 public class BST<E extends Comparable<E>> implements Tree<E> {
   protected TreeNode<E> root;
