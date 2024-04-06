@@ -1,6 +1,6 @@
 package CS1061HW9;
 
-public class AVLTree<E extends Comparable<E>> extends Liang.chpt25.BST<E> {
+public class AVLTree<E extends Comparable<E>> extends BST<E> {
   /** Create an empty AVL tree */
   public AVLTree() {
   }
@@ -256,7 +256,7 @@ public class AVLTree<E extends Comparable<E>> extends Liang.chpt25.BST<E> {
   }
 
   /** AVLTreeNode is TreeNode plus height */
-  protected static class AVLTreeNode<E> extends Liang.chpt25.BST.TreeNode<E> {
+  protected static class AVLTreeNode<E> extends BST.TreeNode<E> {
     protected int height = 0; // New data field
 
     public AVLTreeNode(E o) {

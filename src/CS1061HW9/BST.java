@@ -1,4 +1,5 @@
 package CS1061HW9;
+//package chapter25;
 
 public class BST<E extends Comparable<E>> implements Tree<E> {
   protected TreeNode<E> root;
@@ -108,7 +109,7 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
   }
 
   /** This inner class is static, because it does not access 
-      any instance members defined in its outer class */
+   any instance members defined in its outer class */
   public static class TreeNode<E> {
     public E element;
     public TreeNode<E> left;
@@ -132,7 +133,7 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
   /** Returns a path from the root leading to the specified element */
   public java.util.ArrayList<TreeNode<E>> path(E e) {
     java.util.ArrayList<TreeNode<E>> list =
-      new java.util.ArrayList<>();
+            new java.util.ArrayList<>();
     TreeNode<E> current = root; // Start from the root
 
     while (current != null) {
@@ -206,7 +207,7 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         parentOfRightMost.right = rightMost.left;
       else
         // Special case: parentOfRightMost == current
-        parentOfRightMost.left = rightMost.left;     
+        parentOfRightMost.left = rightMost.left;
     }
 
     size--;
@@ -222,7 +223,7 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
   private class InorderIterator implements java.util.Iterator<E> {
     // Store the elements in a list
     private java.util.ArrayList<E> list =
-      new java.util.ArrayList<>();
+            new java.util.ArrayList<>();
     private int current = 0; // Point to the current element in list
 
     public InorderIterator() {
@@ -257,10 +258,10 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
 
     @Override // Remove the element returned by the last next()
     public void remove() {
-    	if (current == 0) // next() has not been called yet
-        throw new IllegalStateException(); 
+      if (current == 0) // next() has not been called yet
+        throw new IllegalStateException();
 
-    	delete(list.get(--current)); 
+      delete(list.get(--current));
       list.clear(); // Clear the list
       inorder(); // Rebuild the list
     }
