@@ -380,18 +380,30 @@ public class Tree24<E extends Comparable<E>> implements CS1061HW9.Tree<E> {
 
     @Override
     /** Inorder traversal from the root*/
-    public void inorder() {
+    public void inorder() { inorder(root);}
+    public void inorder(Tree24Node<E> root) {
         // Left as exercise
+        if (root == null) return;
+        Integer print = (Integer)root.elements.get(0);
+        if (root.child.size() > 0) {
+            inorder(root.child.get(0));
+        }
+        System.out.print(root.elements.get(0) + " ");
+        if (root.child.size() > 1) {
+            inorder(root.child.get(1));
+        }
     }
 
+    @Override
     /**
      * Postorder traversal from the root
      */
-    public void postorder() {
+    public void postorder() {postorder(root);}
+    public void postorder(Tree24Node<E> root) {
         // Left as exercise
         if (root == null) return;
         for (int i = 0; i < root.child.size(); i++) {
-            preorder(root.child.get(i));
+            postorder(root.child.get(i));
         }
         for (int i = 0; i < root.elements.size(); i++) {
             System.out.print(root.elements.get(i) + " ");
