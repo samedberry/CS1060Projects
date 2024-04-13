@@ -2,7 +2,7 @@ package CS1061HW10;
 
 import java.util.ArrayList;
 
-public class Tree24<E extends Comparable<E>> implements CS1061HW9.Tree<E> {
+public class Tree24<E extends Comparable<E>> implements CS1061HW9.Tree<E>, Iterable<E> {
     private Tree24Node<E> root;
     private int size;
 
@@ -384,13 +384,13 @@ public class Tree24<E extends Comparable<E>> implements CS1061HW9.Tree<E> {
     public void inorder(Tree24Node<E> root) {
         // Left as exercise
         if (root == null) return;
-        Integer print = (Integer)root.elements.get(0);
-        if (root.child.size() > 0) {
-            inorder(root.child.get(0));
-        }
-        System.out.print(root.elements.get(0) + " ");
-        if (root.child.size() > 1) {
-            inorder(root.child.get(1));
+        for (int i = 0; i <= root.elements.size(); i++) {
+            if (i < root.child.size()) {
+                inorder(root.child.get(i));
+            }
+            if (i < root.elements.size()) {
+                System.out.print(root.elements.get(i) + " ");
+            }
         }
     }
 
@@ -427,9 +427,33 @@ public class Tree24<E extends Comparable<E>> implements CS1061HW9.Tree<E> {
     /** Return an iterator to traverse elements in the tree */
     public java.util.Iterator<E> iterator() {
         // Left as exercise
-        return null;
+        return new Tree24Iterator();
     }
 
+    private class Tree24Iterator implements java.util.Iterator<E> {
+        private int counter = 0;
+        @Override
+        public boolean hasNext() {
+            return counter < size;
+        }
+
+        @Override
+        public E next() {
+            counter++;
+            return findNext(root);
+        }
+
+        private E findNext(Tree24Node<E> root) {
+            if (counter < root.child.size()) {
+                return findNext(root.child.get(counter));
+            } else if (counter < root.elements.size()) {
+                return root.elements.get(counter);
+            } else {
+                return null;
+            }
+        }
+
+    }
     /**
      * Define a 2-4 tree node
      */

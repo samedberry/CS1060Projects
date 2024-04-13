@@ -2,15 +2,6 @@ package CS1061HW10;
 
 import CS1061HW9.Tree;
 
-/*
-//Modify the method printTree() to invoke
-//  preorder()
-//  postorder()
-//  inorder()
-//  and possibly also iterator()?
-//from Tree24.java
- */
-
 public class TestTree24 {
     public static void main(String[] args) {
         // Create a 2-4 tree
@@ -62,25 +53,18 @@ public class TestTree24 {
         printTree(tree);
     }
 
-  //Modify the method printTree() to invoke
-//  preorder()
-//  postorder()
-//  inorder()
-//  and possibly also iterator()?
     public static <E extends Comparable<E>> void printTree(Tree<E> tree) {
-      // Traverse tree
       System.out.print("\nPreorder:  ");
       tree.preorder();
       System.out.print("\nThe number of nodes is " + tree.getSize());
-      // Traverse tree
+
       System.out.print("\nPostorder: ");
       tree.postorder();
       System.out.print("\nThe number of nodes is " + tree.getSize());
-      // Traverse tree
+
       System.out.print("\nInorder:   ");
       tree.inorder();
-      System.out.print("\nThe number of nodes is " + tree.getSize());
-      System.out.println();
+      System.out.print("\nThe number of nodes is " + tree.getSize() + "\n");
     }
 }
 
