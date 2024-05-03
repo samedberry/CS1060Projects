@@ -1,16 +1,5 @@
-//THIS REFERENCES GraphHelper.java
-//KEEP IN SAME FOLDER
-
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Set;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Stack;
 
 public class FinalTest1 {
 
@@ -18,13 +7,13 @@ public class FinalTest1 {
 		// Recursion - camelHumps()
 		boolean working = camelHumps(10) == 15;
 		System.out.println("camelHumps() working: " + working);
-		
-		// Graphs - depthFirstTraversal()
-		GraphHelper graph = createGraph();
-		String graphRoot = "Bob";
 
-		System.out.println("\nPerforming a depth first traversal of the graph");
-		System.out.println(depthFirstTraversal(graph, graphRoot));
+        // Graphs - depthFirstTraversal()
+        GraphHelper graph = createGraph();
+        String graphRoot = "Bob";
+
+        System.out.println("\nPerforming a depth first traversal of the graph");
+        System.out.println(depthFirstTraversal(graph, graphRoot));
 
 		// Binary Search Trees - contains() and postorder()
 		String[] people = "Geroge Michael Brittany Chloe Peter Dan Erin".split(" ");
@@ -81,11 +70,8 @@ public class FinalTest1 {
 			}
 			System.out.println(person);
 		}
-
-		
-
 	}
-	
+
 //*******************************************Recursion***************************************************
 
     // DONETODO fill in this method
@@ -103,31 +89,37 @@ public class FinalTest1 {
 
 //*******************************************Graphs***************************************************
 
-	// TODO fill in these methods
-	static Set<String> depthFirstTraversal(GraphHelper graph, String root) {
-        return null;
+    // DONETODO fill in these methods
+    static Set<String> depthFirstTraversal(GraphHelper graph, String root) {
+        LinkedHashSet<String> isVisited = new LinkedHashSet<String>();
+        return dfs(graph, root, isVisited);
     }
-    
-    static Set<String> dfs(GraphHelper graph, String root, LinkedHashSet<String> dftSet){
- 
-		return dftSet;
-	}
 
-	static GraphHelper createGraph() {
-		GraphHelper graph = new GraphHelper();
-		graph.addVertex("Bob");
-		graph.addVertex("Alice");
-		graph.addVertex("Mark");
-		graph.addVertex("Rob");
-		graph.addVertex("Maria");
-		graph.addEdge("Bob", "Alice");
-		graph.addEdge("Bob", "Rob");
-		graph.addEdge("Alice", "Mark");
-		graph.addEdge("Rob", "Mark");
-		graph.addEdge("Alice", "Maria");
-		graph.addEdge("Rob", "Maria");
-		return graph;
-	}
+    static Set<String> dfs(GraphHelper graph, String root, LinkedHashSet<String> dftSet){
+        if (dftSet.contains(root)) return dftSet;
+        dftSet.add(root);
+        for (Vertex vertex : graph.getAdjVertices(root)) {
+            dftSet = (LinkedHashSet<String>) dfs(graph, vertex.label, dftSet);
+        }
+        return dftSet;
+    }
+
+    static GraphHelper createGraph() {
+        GraphHelper graph = new GraphHelper();
+        graph.addVertex("Bob");
+        graph.addVertex("Alice");
+        graph.addVertex("Mark");
+        graph.addVertex("Rob");
+        graph.addVertex("Maria");
+        graph.addEdge("Bob", "Alice");
+        graph.addEdge("Bob", "Rob");
+        graph.addEdge("Alice", "Mark");
+        graph.addEdge("Rob", "Mark");
+        graph.addEdge("Alice", "Maria");
+        graph.addEdge("Rob", "Maria");
+        return graph;
+    }
+
 }
 
 //*******************************************BST***************************************************
