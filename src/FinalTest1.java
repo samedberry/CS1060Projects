@@ -1,4 +1,5 @@
-
+//THIS REFERENCES GraphHelper.java
+//KEEP IN SAME FOLDER
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -87,14 +88,17 @@ public class FinalTest1 {
 	
 //*******************************************Recursion***************************************************
 
-	// TODO fill in this method
+    // DONETODO fill in this method
 
 	// We have camels standing in a line, numbered 1, 2, ... The odd camels (1, 3, ..) 
 	// have the normal 1 humps. The even bunnies (2, 4, ..) we'll say have 2 humps. 
 	// Recursively return the number of "humps" 
 	// in the camel line 1, 2, ... n (without loops or multiplication).
 	static int camelHumps(int camels) {
-        return 0;
+        if (camels < 1) return 0;
+        int humps = camelHumps(camels-1)+1;
+        if (camels%2 == 0) humps = humps+1;
+        return humps;
 	}
 
 //*******************************************Graphs***************************************************
@@ -132,15 +136,35 @@ class BST<E extends Comparable<E>> {
 	private TreeNode<E> root;
 	private int size = 0;
 
-	// TODO fill in this method
+	// DONETODO fill in this method
 	// Returns true if the element is in the tree
 	public boolean contains(E e) {
+        TreeNode<E> parent = null;
+        TreeNode<E> current = root;
+        while (current != null) {
+            if (e.compareTo(current.element) < 0) {
+                parent = current;
+                current = current.left;
+            } else if (e.compareTo(current.element) > 0) {
+                parent = current;
+                current = current.right;
+            } else {
+                return true;
+            }
+        }
 		return false;
 	}
 
-	// TODO fill in this method
+	// DONETODO fill in this method
 	static void postorder(TreeNode<?> root) {
+        if (root == null) return;
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.element + " ");
 	}
+    public void postorder() {
+        postorder(root);
+    }
 	
 	// Insert element e into the binary tree Return true if the element is inserted successfully
 	public boolean insert(E e) {
@@ -241,9 +265,26 @@ class MyMaxHeap<T extends Comparable<T>> {
 			insert(person);
 	}
 
-	// TODO fill in this method
+	// DONETODO fill in this method
 	// insert item into a max heap
 	public void insert(T item) {
+        list.add(item); // Append to the heap
+        int currentIndex = list.size() - 1; // The index of the last node
+
+        while (currentIndex > 0) {
+            int parentIndex = (currentIndex - 1) / 2;
+            // Swap if the current object is greater than its parent
+            if (list.get(currentIndex).compareTo(
+                    list.get(parentIndex)) > 0) {
+                T temp = list.get(currentIndex);
+                list.set(currentIndex, list.get(parentIndex));
+                list.set(parentIndex, temp);
+            }
+            else
+                break; // the tree is a heap now
+
+            currentIndex = parentIndex;
+        }
 
 	}
 	
@@ -688,8 +729,15 @@ class Tree24<E extends Comparable<E>> {
     postorder(root);
   }
 
-  	// TODO fill in this method
+  	// DONETODO fill in this method
   private void postorder(Tree24Node<E> root) {
+      if (root == null) return;
+      for (int i = 0; i < root.child.size(); i++) {
+          postorder(root.child.get(i));
+      }
+      for (int i = 0; i < root.elements.size(); i++) {
+          System.out.print(root.elements.get(i) + " ");
+      }
   }
 
   /** Return true if the tree is empty */
