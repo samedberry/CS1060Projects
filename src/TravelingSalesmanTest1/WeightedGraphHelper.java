@@ -141,13 +141,18 @@ public class WeightedGraphHelper<T> extends UnweightedGraphHelper<T> {
             double weight = 0;
             double currentMinCost = Double.POSITIVE_INFINITY;
 
+            //IS THIS METHOD RECURSIVE???
+
             // get vertex with smallest cost
-            for (Vertex<T> v : cost.keySet()) {
-                // ....
-                // to be completed by student
-                // see Listing 29.7 in our text
-                //...
-            }
+//            for (Vertex<T> v : cost.keySet()) {
+//                // to be completed by student
+////              if (cost[v] > cost[u] + weight of edge(u,v)) {
+//                if () {
+////                  cost[v] = cost[u] + w(u, v);
+////                  parent[v] = u;
+//
+//                }
+//            }
         }
         return new ShortestPathTree(getVertex(sourceVertex), parent, T, cost);
     }

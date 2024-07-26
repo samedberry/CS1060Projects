@@ -5,7 +5,7 @@ package TravelingSalesmanTest1;
  */
 public class TravelingSalesmanTest {
     public static void main(String[] args) throws Exception {
-     
+
         WeightedGraphHelper<String> graph = createGraph();
 
         WeightedGraphHelper<String>.ShortestPathTree tree = graph.getShortestPath("Chicago");
